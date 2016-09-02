@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Observer.h"
 
 @interface ViewController ()
 
@@ -14,6 +15,10 @@
  * 当前时间
  */
 @property (nonatomic, copy) NSString *currrentTime;
+/**
+ * observer
+ */
+@property (nonatomic, strong) Observer *observer;
 
 /**
  * 时间label
@@ -30,6 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    Observer *observer = [Observer new];
+    self.observer = observer;
     
     UILabel *timeLabel = [UILabel new];
     timeLabel.frame = CGRectMake(0, 100, self.view.bounds.size.width, 50);
@@ -48,7 +56,8 @@
     [self.view addSubview:timeButton];
     self.timeButton = timeButton;
     
-    [self addObserver:self forKeyPath:@"currrentTime" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"currrentTime" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [self.observer addObserver:self forKeyPath:@"currentTime" options:NSKeyValueObservingOptionNew context:(__bridge void * _Nullable)(self)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,19 +67,27 @@
 
 - (void)dealloc {
     [self removeObserver:self forKeyPath:@"currrentTime" context:nil];
+    [self.observer removeObserver:self forKeyPath:@"currentTime" context:nil];
 }
 
 #pragma mark - handle click action
 - (void)getCurrentTime {
     self.currrentTime = [NSString stringWithFormat:@"%@", [NSDate date]];
+    self.observer.currentTime = [NSString stringWithFormat:@"%@", [NSDate date]];
+    
+//    self.observer = nil;
 }
 
 #pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"currrentTime"] && object == self) {
         
+        NSLog(@"change : %@", change);
+        
         NSString *currentTime = change[@"new"];
         self.timeLabel.text = currentTime;
+    } else if ([keyPath isEqualToString:@"currentTime"] && object == self.observer) {
+        NSLog(@"change : %@", change);
     }
 }
 

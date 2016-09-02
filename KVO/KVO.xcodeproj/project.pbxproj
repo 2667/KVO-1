@@ -15,6 +15,7 @@
 		79D388901D79FC6100C37C33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D3888E1D79FC6100C37C33 /* LaunchScreen.storyboard */; };
 		79D3889B1D79FC6100C37C33 /* KVOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3889A1D79FC6100C37C33 /* KVOTests.m */; };
 		79D388A61D79FC6100C37C33 /* KVOUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D388A51D79FC6100C37C33 /* KVOUITests.m */; };
+		79D388B51D7A06A600C37C33 /* Observer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D388B41D7A06A600C37C33 /* Observer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		79D388A11D79FC6100C37C33 /* KVOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D388A51D79FC6100C37C33 /* KVOUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOUITests.m; sourceTree = "<group>"; };
 		79D388A71D79FC6100C37C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79D388B31D7A06A600C37C33 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		79D388B41D7A06A600C37C33 /* Observer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				79D388841D79FC6100C37C33 /* AppDelegate.m */,
 				79D388861D79FC6100C37C33 /* ViewController.h */,
 				79D388871D79FC6100C37C33 /* ViewController.m */,
+				79D388B31D7A06A600C37C33 /* Observer.h */,
+				79D388B41D7A06A600C37C33 /* Observer.m */,
 				79D388891D79FC6100C37C33 /* Main.storyboard */,
 				79D3888C1D79FC6100C37C33 /* Assets.xcassets */,
 				79D3888E1D79FC6100C37C33 /* LaunchScreen.storyboard */,
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D388881D79FC6100C37C33 /* ViewController.m in Sources */,
+				79D388B51D7A06A600C37C33 /* Observer.m in Sources */,
 				79D388851D79FC6100C37C33 /* AppDelegate.m in Sources */,
 				79D388821D79FC6100C37C33 /* main.m in Sources */,
 			);
